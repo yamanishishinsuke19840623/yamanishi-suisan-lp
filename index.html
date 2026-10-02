@@ -293,10 +293,10 @@
   </section>
 
   <section class="trust-bg reveal">
-    <h2 class="section-title"><small>選ばれる理由</small>下関で147年、ふぐ一筋</h2>
+    <h2 class="section-title"><small>選ばれる理由</small>下関で<span data-fy>147</span>年、ふぐ一筋</h2>
     <div class="trust-grid">
       <div class="trust-item">
-        <div class="trust-num">147<span style="font-size:13px;">年</span></div>
+        <div class="trust-num"><span data-fy>147</span><span style="font-size:13px;">年</span></div>
         <div class="trust-label">明治12年創業<br>下関の老舗問屋</div>
       </div>
       <div class="trust-item">
@@ -306,7 +306,7 @@
     </div>
     <div class="founder-block">
       <img src="images/founder.png" alt="山西水産 代表 山西伸典">
-      <p><span class="name">代表 山西伸典より</span>下関で147年、ふぐ一筋でやってきた家業です。仕入れから加工まで、自分たちの目で確かめたものだけをお届けしています。</p>
+      <p><span class="name">代表 山西伸典より</span>下関で<span data-fy>147</span>年、ふぐ一筋でやってきた家業です。仕入れから加工まで、自分たちの目で確かめたものだけをお届けしています。</p>
     </div>
   </section>
 
@@ -347,6 +347,12 @@
   }, {threshold:0.12});
   els.forEach(function(el){ io.observe(el); });
 })();
+</script>
+<script id="founding-years">
+/* 創業からの年数を自動更新（明治12年＝1879年創業）。HTML内の数字はJS無効時の予備表示 */
+(function(){var y=new Date(Date.now()+9*36e5).getUTCFullYear()-1879;
+document.querySelectorAll('[data-fy]').forEach(function(e){e.textContent=y});
+var m=document.querySelector('meta[name="description"]');if(m)m.content=m.content.replace(/147年/g,y+'年');})();
 </script>
 </body>
 </html>
